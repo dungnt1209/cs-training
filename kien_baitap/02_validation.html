@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Excercise - Validation</title>
+</head>
+<body>
+<form action="">
+	<h1>HTML5 Form Validation</h1>
+	Your name: <input type="text" name="name" required> <br><br>
+	Email Address: <input type="email" name="email" required placeholder="Enter a valid email address"> <br><br>
+	Website: <input type="url" name="website" required pattern="https?://.+">
+</form>
+
+
+</body>
+
+<style>
+	input:required:valid, textarea:required:valid {
+		background-image: url(images/valid.png);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	input:required:invalid,input:focus:invalid,textarea:required:invalid,textarea:focus:invalid {
+		background-image: url(images/invalid.png);
+		background-position: right top;
+		background-repeat: no-repeat;
+		box-shadow: none
+	}
+
+</style>
+</html>
