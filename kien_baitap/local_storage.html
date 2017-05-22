@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSTraining - Local Storage</title>
+</head>
+<body>
+
+<form action="">
+	<div>
+		<label for="name">Name</label> <input type="text" id="name">
+	</div>
+	<div>
+		<label for="email">Email</label> <input type="text" id="email">
+	</div>
+	<div>
+		<label for="website">Website</label> <input type="text" id="website">
+	</div>
+	<div>
+		<label for="phone">Phone</label> <input type="text" id="phone">
+	</div>
+	<div><button id="btn-submit" >Submit</button></div>
+	<div><button id="btn-clear" >Clear</button></div>
+
+</form>
+
+<script type="text/javascript">
+	var userProp = ['name', 'email', 'website', 'phone'];
+	var saveLS = function (e) {
+		e.preventDefault();
+		userProp.forEach(function(val, index){
+			var fieldValue = document.getElementById(val).value;
+			localStorage.setItem(val, fieldValue);
+		});
+		console.log(localStorage);
+	};
+	var clearLS = function(e){
+		e.preventDefault();
+		userProp.forEach(function(val, index){
+			localStorage.removeItem(val);
+		});
+		console.log(localStorage);
+	};
+
+	document.getElementById("btn-submit").onclick = saveLS;
+	document.getElementById("btn-clear").onclick = clearLS;
+</script>
+
+</body>
+</html>
