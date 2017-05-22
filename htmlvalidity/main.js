@@ -1,7 +1,10 @@
 "use strict";
-var name = document.forms["form"]["name"];
+var form = document.forms["form"];
+var name = form.name;
+var email = form.email;
+var website = form.website;
 function validateForm() {
-    if(required(name)) {
+    if(required(form.name)) {
         console.log("name OKE");
     } else {
         console.log("name NOT OKE");
@@ -10,7 +13,7 @@ function validateForm() {
 }
 function required(element) {
     var value = element.value;
-    if((value == 'undefined') || (value == '')) {
+    if((value == undefined) || (value == '') || (value == null)) {
         return false;
     } else {
         return true;
