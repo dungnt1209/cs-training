@@ -8,7 +8,7 @@
 	<link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
-	<form class="form">
+	<form  id="form" class="form">
 		<div class="ground-form">
 			<label for="name">Name</label>
 		    <input type="text" id="name" name="name"  pattern="[a-zA-Z]{0,}">
@@ -29,9 +29,10 @@
 			<label for="phone">Upload</label>
 		    <input type="file" id="upload" name="upload" max-size="1048576">
 		</div>
-	  <button onclick="validateForm()">Submit</button>
-	  <button>clear</button>
+	  <button id="submit" onclick="validateForm()">Submit</button>
+	  <button id="clear">clear</button>
 	</form>
+	<div id="message"></div>
 </body>
 <script type="text/javascript" src="js/main.js"></script>
 </html>
