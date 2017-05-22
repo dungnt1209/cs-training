@@ -5,7 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<form>
+	<h2 id="welcomeMessage"></h2>
+	<form id="formsub">
 		<div class="form-group">
 		  <label for="fname">Name</label>
 		  <input type="text" id="fname" name="fname" pattern="[A-Za-z]{1,}" required="required" placeholder="Chỉ nhập text a-z và A-Z">
@@ -31,7 +32,8 @@
 		  <input type="file" id="fupl" name="fupl" max-size="1048576">
 	  </div>
 
-	  <button>Submit</button>
+	  <button id="submit">Submit</button>
+	  <a id="clearstorage" href="">Clear</a>
 	</form>
 
 	<script type="text/javascript" src="app.js">

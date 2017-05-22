@@ -113,3 +113,67 @@ InvalidInputNotRequired(document.getElementById("fphone"), {
 window.onload = function () {
   document.getElementById("fupl").onchange = checkFileSize;
 }
+
+var length = sessionStorage.length;
+var length_s = localStorage.length;
+console.log(length_s);
+
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+window.onload = function() {
+    var $name = document.getElementById("fname"), 
+        $email = document.getElementById("femail"),
+        $web = document.getElementById("fweb"),
+        $phone = document.getElementById("fphone"),
+        $upload = document.getElementById("fupl");
+
+    
+
+    
+
+    if (localStorage) {
+        document.getElementById('formsub').addEventListener('submit', function() {
+            var $setname = $name.value, 
+                $setemail = $email.value,
+                $setweb = $web.value,
+                $setphone = $phone.value,
+                $setupload = $upload.value;
+
+            localStorage.setItem('name', $setname);
+            localStorage.setItem('email', $setemail);
+            localStorage.setItem('website', $setweb);
+            localStorage.setItem('phone', $setphone);
+            localStorage.setItem('uploadFile', $setupload);
+        });
+
+        document.getElementById('clearstorage').addEventListener('click', function(){
+            localStorage.removeItem('name');
+            localStorage.removeItem('email');
+            localStorage.removeItem('website');
+            localStorage.removeItem('phone');
+            localStorage.removeItem('uploadFile');
+        })
+
+      
+
+        var $getname = localStorage.getItem('name'),
+            $getemail = localStorage.getItem('email'),
+            $getweb = localStorage.getItem('website'),
+            $getphone = localStorage.getItem('phone'),
+            $getupload = localStorage.getItem('uploadFile');
+
+
+        if ($getname != "undefined" && $getname != "null" && $getname != "") {
+            document.getElementById('welcomeMessage').innerHTML =   "<li> Name: "+$getname+"</li>"
+                                                                    +"<li> Name: "+$getemail+"</li>"
+                                                                    +"<li> Name: "+$getweb+"</li>"
+                                                                    +"<li> Name: "+$getphone+"</li>"
+                                                                    +"<li> Name: "+$getupload+"</li>";
+        } else {
+            document.getElementById('welcomeMessage').innerHTML = "<li></li>";
+        }  
+    }
+}
