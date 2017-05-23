@@ -72,19 +72,37 @@ function checkupload() {
 
 window.onload = function () {
    	document.getElementById("upload").onchange = checkupload;
-
+   	var $file = document.getElementById("upload");
   	if(localStorage) {
   		document.getElementById('form').addEventListener('submit', function() {
-  			var $name = document.getElementById('name'),
-	  			$valuname = $name.value;
-	  		localStorage.setItem('name', $valuname);
+	  			localStorage.setItem('Name', $name.value);
+	  			localStorage.setItem('Email', $email.value);
+	  			localStorage.setItem('Website', $website.value);
+	  			localStorage.setItem('phone', $phone.value);
+	  			localStorage.setItem('file', $file.value);
 	  	});
   	}
-  	var $getname = localStorage.getItem('name');
+
+  	var $getname = localStorage.getItem('Name'),
+	  	$getemail = localStorage.getItem('Email'),
+	  	$getweb = localStorage.getItem('Website'),
+	  	$getphone = localStorage.getItem('phone'),
+	  	$getfile = localStorage.getItem('file');
+
   	if ($getname != "undefined" && $getname != "null" && $getname != "") {
-  		 document.getElementById('message').innerHTML =   "Name: " + $getname
-  	}
+  		 document.getElementById('message').innerHTML =   "Name: " + $getname + "<br>" 
+  		 												  + "Email: " + $getemail + "<br>"
+  		 												  + "Web: " + $getweb + "<br>"
+  		 												  + "Phone: " + $getphone + "<br>"
+  		 												  + "File: " + $getfile + "<br>";
+  	} else {
+            document.getElementById('message').innerHTML = "";
+    }  
   	 document.getElementById('clear').addEventListener('click', function(){
-            localStorage.removeItem('name');
+            localStorage.removeItem('Name');
+            localStorage.removeItem('Email');
+            localStorage.removeItem('Website');
+            localStorage.removeItem('phone');
+            localStorage.removeItem('file');
     });
 };
