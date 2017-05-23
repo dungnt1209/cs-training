@@ -8,8 +8,9 @@
 <form action="">
 	<h1>HTML5 Form Validation</h1>
 	Your name: <input type="text" name="name" required> <br><br>
-	Email Address: <input type="email" name="email" required placeholder="Enter a valid email address"> <br><br>
-	Website: <input type="url" name="website" required pattern="https?://.+">
+	Email Address: <input type="text" id="email" required name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> <br><br>
+	Website: <input type="url" name="website" required pattern="https?://.+"> <br><br>
+	Upload: <input type="file" id="upload" required name="upload" max-size="1048576"> <br><br>
 </form>
 
 
