@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Title</title>
+
+  <style type="text/css">
+    input {
+      outline: 0;
+      padding: 5px;
+      border: 2px solid #ccc;
+      line-height: 20px;
+    }
+
+    input[type='email']:focus:invalid {
+      border: 2px solid red;
+    }
+    input[type='url']:focus:invalid {
+      border: 2px solid green;
+    }
+  </style>
+
+  
+
+</head>
+<body onload="load()">
+  <form action="">
+    <p>Name
+      <input type="text" id="name" name="name" required placeholder="" pattern="[A-Za-z]+" title="Name contain letters uppercase, lowercase a-z" size="20">
+    </p>
+
+    <p>Email:
+      <input type="email" id="email" name="email" required placeholder="" title="" size="20">
+    </p>
+
+    <p>Website:
+      <input type="url" id="url" name="url" placeholder="" size="20">
+    </p>
+
+    <p>Phone:
+      <input type="tel" id="tel" name="tel" pattern="[0-9]{10}" placeholder="" title="nb" size="15">
+    </p>
+
+    <p>File:
+      <input type="file" id="fileup">
+    </p>
+
+    <p><input onclick="save()" type="submit" value="Save"> <input onclick="remove()" type="button" value="Clear"></p>
+  </form>
+  <script type="text/javascript">
+    //Check validation
+    document.getElementById("name").addEventListener("invalid", myFunction, false);
+    function myFunction(e) {
+      e.target.setCustomValidity('Bạn cần phải nhập Tên');
+    }
+
+    document.getElementById("email").addEventListener("invalid", myFunction, false);
+    function myFunction(e) {
+      e.target.setCustomValidity('Bạn cần phải nhập Email');
+    }
+
+    document.getElementById("url").addEventListener("invalid", myFunction, false);
+    function myFunction(e) {
+      e.target.setCustomValidity('Bạn cần phải nhập Url');
+    }
+
+    //function checkvali() {
+
+    // }
+
+    //Save
+    function save() {
+      var name1 = document.getElementById('name').value;
+      var email1 = document.getElementById('email').value;
+      var url1 = document.getElementById('url').value;
+      var tel1 = document.getElementById('tel').value;
+
+      localStorage.setItem('text',name1);
+      localStorage.setItem('email',email1);
+      localStorage.setItem('url',url1);
+      localStorage.setItem('tel',tel1);
+    }
+
+    //Load
+    function load() {
+      var nameValue = localStorage.getItem('text');
+      var emailValue = localStorage.getItem('email');
+      var urlValue = localStorage.getItem('url');
+      var telValue = localStorage.getItem('tel');
+
+      if (nameValue) {
+        document.getElementById('name').value = nameValue;
+      }
+      if (emailValue) {
+        document.getElementById('email').value = emailValue;
+      }
+      if (urlValue) {
+        document.getElementById('url').value = urlValue;
+      }
+      if (telValue) {
+        document.getElementById('tel').value = telValue;
+      }
+    }
+
+    //Remove
+    function remove() {
+      document.getElementById('name').value = '';
+      localStorage.removeItem('text');
+      document.getElementById('email').value = '';
+      localStorage.removeItem('email');
+      document.getElementById('url').value = '';
+      localStorage.removeItem('url');
+      document.getElementById('tel').value = '';
+      localStorage.removeItem('tel');
+    }
+
+  </script>
+</body>
+</html>
