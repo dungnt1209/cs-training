@@ -231,3 +231,42 @@ input:invalid {
     border-color: #c10000;
     background-color: #fbc2c2;
 }
+.videomain {
+    width: 640px;
+    float: left;
+}
+.mainvideo {
+    position: relative;
+    
+}
+.mainvideo::before, .mainvideo::after {
+    content: '';
+    display: table;
+}
+.mainvideo::after {
+    clear: both;
+}
+
+.thumbs {
+    float: left;
+    margin-left: 35px;
+}
+.thum {
+    display: block;
+    margin-top: 20px;
+}
+.countvideo {
+    display: none;
+}
+#canvas {
+    display: none;
+}
+
+#screenShots img {
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+.track {
+    display: none;
+}

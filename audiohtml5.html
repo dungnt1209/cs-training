@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Audio</title>
+	<link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="mainvideo">
+			<div class="videomain">
+				  <video controls id="video1" class="countvideo">
+				    <source src="video/toystory.mp4" type='video/mp4'>
+				    <track src="devstories-en.vtt" label="English subtitles" 
+         			kind="subtitles" srclang="en" default id="track"></track>
+				  </video>
+				  <video controls class="countvideo" id="video2">
+				    <source src="video/VfE_html5.mp4" type='video/mp4'>
+				  </video>
+				  <video controls id="video3" class="countvideo">
+				    <source src="video/small.webm" type='video/webm'>
+				  </video>
+				  <div class="all-btn">
+					<div class="inner-btn">
+						<button id="play-pause" onclick="playPause()" >Play/Pause</button>
+						<button id="s5" onclick="setCurTime5()" type="button">5s</button>
+						<button id="s10" onclick="setCurTime10()" type="button">10s</button>
+						<button id="subtitle" onclick="clicksubtitle()">Subtitle</button>
+						<button id="prev" onclick ="prenext(-1)" class="btprenext">Prev</button>
+						<button id="next" onclick ="prenext(1)" class="btprenext">Next</button>
+					</div>
+					<button onclick="capture()">Capture playing video to image</button>
+			
+				</div>
+				<canvas id="canvas" ></canvas>
+				<div id="screenShots"></div>
+			</div>
+			<div class="thumbs">
+				<button class="thum"  onclick="thumDiv(1)">video poster1</button>
+				<button class="thum"  onclick="thumDiv(2)">video poster2</button>
+				<button class="thum"  onclick="thumDiv(3)">video poster3</button>
+			</div>
+		</div>
+
+	</div>
+	
+</body>
+<script type="text/javascript">
+	var htmlPlayer = document.getElementsByTagName('video');
+	function playPause() {
+
+		for(var i = 0; i < htmlPlayer.length; i++){
+			if(htmlPlayer[i].style.display == 'block') {
+				 if (htmlPlayer[i].paused) {
+		        htmlPlayer[i].play();
+		        return false;
+		      }  else { 
+		      htmlPlayer[i].pause();
+		      return false;
+		     }
+			}
+			}
+		} 
+//////////////////////////////////////////////////////////////
+	function setCurTime5() {
+		for(var i = 0; i < htmlPlayer.length; i++){
+			htmlPlayer[i].currentTime = 5;
+		}
+	}
+	function setCurTime10() {
+		for(var i = 0; i < htmlPlayer.length; i++){
+			htmlPlayer[i].currentTime = 10;
+		}
+	}
+//////////////////////////////////////////////////////////////
+  	var count =1;
+  	showvideo(count);
+
+  	function prenext(n) {
+  		showvideo(count += n);
+  		// for(var i = 0; i < htmlPlayer.length; i++){
+		  //  	htmlPlayer[i].currentTime = 0;
+		  //  	htmlPlayer[i].pause();
+	   // 	}
+  	}
+
+  	function thumDiv(n) {
+	    showvideo(count = n);
+	    // for(var i = 0; i < htmlPlayer.length; i++){
+		   // 	htmlPlayer[i].currentTime = 0;
+		   // 	htmlPlayer[i].pause();
+	   	// }
+	}
+
+    function showvideo(n) {
+	   	var i;
+	   	var x = document.getElementsByClassName("countvideo");
+	   	if(n>x.length) {
+	   		count = 1}
+	   	if(n<1) {
+	   		count = x.length;
+	   	}
+	   	for(i=0; i<x.length; i++) {
+	   		x[i].style.display ='none';
+	   	}
+	   	x[count-1].style.display ='block';
+   	}
+
+//////////////////////////////////////////////////////////////
+   		var video1 = document.getElementById("video1");
+   		// var video2 = document.getElementById("video2");
+   		// var video3 = document.getElementById("video3");
+	    var canvas = document.getElementById("canvas");
+	    var ctx = canvas.getContext("2d");
+	    var ssContainer = document.getElementById("screenShots");
+
+   
+	    function capture() {
+	      ctx.drawImage(video1, 0, 0);
+	      // ctx.drawImage(video2, 0, 0);
+	      // ctx.drawImage(video3, 0, 0);
+	      var img = new Image();
+	      img.src = canvas.toDataURL("../image/png");
+	      img.width = 120;
+	      ssContainer.appendChild(img);
+	    }
+/////////////////////////////////////////////////////////////
+function clicksubtitle() {
+    var x = document.getElementById('track'); 
+        x.remove(x);
+}
+
+
+// video.addEventListener("loadedmetadata", function() { 
+//    track = document.createElement("track"); 
+//    track.kind = "captions"; 
+//    track.label = "English"; 
+//    track.srclang = "en"; 
+//    track.src = "captions/sintel-en.vtt"; 
+//    track.addEventListener("load", function() { 
+//       this.mode = "showing"; 
+//       video.textTracks[0].mode = "showing"; // thanks Firefox 
+//    }); 
+//    this.appendChild(track); 
+// });
+</script>
+</html>
