@@ -76,7 +76,7 @@
 	}
 //////////////////////////////////////////////////////////////
   	var count =1;
-  	showvideo(count);
+  	showvideo(1);
 
   	function prenext(n) {
   		showvideo(count += n);
@@ -118,13 +118,26 @@
 
    
 	    function capture() {
-	      ctx.drawImage(video1, 0, 0);
-	      // ctx.drawImage(video2, 0, 0);
-	      // ctx.drawImage(video3, 0, 0);
-	      var img = new Image();
-	      img.src = canvas.toDataURL("../image/png");
-	      img.width = 120;
-	      ssContainer.appendChild(img);
+		    for(var i = 0; i < htmlPlayer.length; i++){
+			  	htmlPlayer[i].pause();
+			   	ctx.drawImage(htmlPlayer[i], 0, 0, 300, 200); 
+			}
+
+			   		
+			   		if(video1.paused){
+			   		 return false
+			   		} else {
+				   		var img = new Image();
+				      	img.src = canvas.toDataURL("../image/png");
+				     	img.width = 120;
+				      	ssContainer.appendChild(img);
+				      	 return false;
+			   		}
+
+
+	  
+	     		
+	     
 	    }
 /////////////////////////////////////////////////////////////
 function clicksubtitle() {
