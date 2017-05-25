@@ -14,13 +14,17 @@
 				  <video controls id="video1" class="countvideo">
 				    <source src="video/toystory.mp4" type='video/mp4'>
 				    <track src="devstories-en.vtt" label="English subtitles" 
-         			kind="subtitles" srclang="en" default id="track"></track>
+         			kind="subtitles" srclang="en" default class="track"></track>
 				  </video>
 				  <video controls class="countvideo" id="video2">
 				    <source src="video/VfE_html5.mp4" type='video/mp4'>
+						<track src="devstories-en.vtt" label="English subtitles" 
+         					kind="subtitles" srclang="en" default class="track"></track>
 				  </video>
 				  <video controls id="video3" class="countvideo">
 				    <source src="video/small.webm" type='video/webm'>
+				    <track src="devstories-en.vtt" label="English subtitles" 
+         			kind="subtitles" srclang="en" default class="track"></track>
 				  </video>
 				  <div class="all-btn">
 					<div class="inner-btn">
@@ -48,21 +52,18 @@
 	
 </body>
 <script type="text/javascript">
-	var htmlPlayer = document.getElementsByTagName('video');
+	var htmlPlayer = document.getElementsByClassName('countvideo');
 	function playPause() {
 
 		for(var i = 0; i < htmlPlayer.length; i++){
-			if(htmlPlayer[i].style.display == 'block') {
-				 if (htmlPlayer[i].paused) {
+			if (htmlPlayer[i].paused) {
 		        htmlPlayer[i].play();
-		        return false;
 		      }  else { 
 		      htmlPlayer[i].pause();
 		      return false;
 		     }
-			}
-			}
-		} 
+		}
+	} 
 //////////////////////////////////////////////////////////////
 	function setCurTime5() {
 		for(var i = 0; i < htmlPlayer.length; i++){
@@ -83,6 +84,9 @@
   		for(var i = 0; i < htmlPlayer.length; i++){
 		   	htmlPlayer[i].currentTime = 0;
 		   	htmlPlayer[i].pause();
+	   		for (var j = 0; j < htmlPlayer[i].textTracks.length; j++) { 
+			    htmlPlayer[i].textTracks[j].mode= "showing";
+		   } 
 	   	}
   	}
 
@@ -91,6 +95,9 @@
 	    for(var i = 0; i < htmlPlayer.length; i++){
 		   	htmlPlayer[i].currentTime = 0;
 		   	htmlPlayer[i].pause();
+		   	for (var j = 0; j < htmlPlayer[i].textTracks.length; j++) { 
+			    htmlPlayer[i].textTracks[j].mode= "showing";
+		   } 
 	   	}
 	}
 
@@ -109,54 +116,51 @@
    	}
 
 //////////////////////////////////////////////////////////////
-   		var video1 = document.getElementById("video1");
-   		// var video2 = document.getElementById("video2");
-   		// var video3 = document.getElementById("video3");
-	    var canvas = document.getElementById("canvas");
-	    var ctx = canvas.getContext("2d");
-	    var ssContainer = document.getElementById("screenShots");
+	var video1 = document.getElementById("video1");
+	// var video2 = document.getElementById("video2");
+	// var video3 = document.getElementById("video3");
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var ssContainer = document.getElementById("screenShots");
 
    
-	    function capture() {
-		    for(var i = 0; i < htmlPlayer.length; i++){
-			  	htmlPlayer[i].pause();
-			   	ctx.drawImage(htmlPlayer[i], 0, 0, 300, 200); 
-			}
-
-			   		
-			   		if(video1.paused){
-			   		 return false
-			   		} else {
-				   		var img = new Image();
-				      	img.src = canvas.toDataURL("../image/png");
-				     	img.width = 120;
-				      	ssContainer.appendChild(img);
-				      	 return false;
-			   		}
-
-
-	  
-	     		
-	     
-	    }
+    function capture() {
+	    for(var i = 0; i < htmlPlayer.length; i++){
+	    	if(htmlPlayer[i].style.display == 'block'){
+	    		ctx.drawImage(htmlPlayer[i], 0, 0, 300, 200); 
+	    	}	  	
+		}  		
+   		if(video1.paused){
+   		 return false
+   		} else {
+	   		var img = new Image();
+	      	img.src = canvas.toDataURL("../image/png");
+	     	img.width = 120;
+	      	ssContainer.appendChild(img);
+	      	 return false;
+   		}   
+    }
 /////////////////////////////////////////////////////////////
-function clicksubtitle() {
-    var x = document.getElementById('track'); 
-        x.remove(x);
+	function clicksubtitle() {
+		// var video = document.querySelector("video");
+		for(var i = 0; i < htmlPlayer.length; i++){
+			for (var j = 0; j < htmlPlayer[i].textTracks.length; j++) { 
+			      if (htmlPlayer[i].textTracks[j].mode == "showing"){
+				        htmlPlayer[i].textTracks[j].mode = "hidden" 
+				    }
+				     else 
+				     	htmlPlayer[i].textTracks[j].mode= "showing";
+			   } 
+		}	
 }
 
 
-// video.addEventListener("loadedmetadata", function() { 
-//    track = document.createElement("track"); 
-//    track.kind = "captions"; 
-//    track.label = "English"; 
-//    track.srclang = "en"; 
-//    track.src = "captions/sintel-en.vtt"; 
-//    track.addEventListener("load", function() { 
-//       this.mode = "showing"; 
-//       video.textTracks[0].mode = "showing"; // thanks Firefox 
-//    }); 
-//    this.appendChild(track); 
-// });
+
+
 </script>
+
+
+
 </html>
+
+
