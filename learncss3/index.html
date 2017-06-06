@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>CSS3 - Flexible Box Model</title>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="inner-header">
+				<a href="" class="logo">LOGO</a>
+				<nav class="nav-menu">
+					<li><a href="">Menu item 1</a></li>
+					<li><a href="">Menu item 2</a></li>
+					<li><a href="">Menu item 3</a></li>
+				</nav>
+			</div>
+		</div>
+		
+	</header>
+	<section class="section1">
+		<div class="container">
+			<div class="inner-section1">
+				<div class="form">
+					<div class="inner-form">
+						<form  id="form">
+							<div class="ground-form">
+								<label for="name">Name</label>
+							    <input type="text" id="name" name="name"  pattern="[a-zA-Z]{0,}">
+							</div>
+							<div class="ground-form">
+								<label for="email">Email</label>
+							    <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+							</div>
+							<div class="ground-form">
+								<label for="website">Website</label>
+							    <input type="url" id="website" name="website" pattern="https?://.+" >
+							</div>
+							<div class="ground-form">
+								<label for="phone">Phone</label>
+							    <input type="text" id="phone" name="phone" pattern="[0-9]{0,10}">
+							</div>
+							<div class="ground-form">
+								<label for="phone">Upload</label>
+							    <input type="file" id="upload" name="upload" max-size="1048576">
+							</div>
+						  <button id="submit" onclick="validateForm()">Submit</button>
+						  <button id="clear">clear</button>
+						</form>
+					</div>
+		
+				</div>
+			<div class="main-title">
+				<h2 class="title">Title</h2>
+				<h2 class="title">Title</h2>
+				<h2 class="title">Title</h2>
+			</div>
+			</div>
+
+		</div>
+	</section>
+	<section class="section2">
+		<div class="container">
+			<div class="inner-section2">
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, 
+				</div>
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, consectetuer adipiscingLorem ipsum dolor sit ament, consectetuer adipiscingLorem
+				</div>
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, 
+				</div>
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, consectetuer adipiscingLorem ipsum dolor sit ament, consectetuer adipiscingLorem
+				</div>
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, 
+				</div>
+				<div class="item item1">
+					<h3>Title</h3>
+					orem ipsum dolor sit ament, consectetuer adipiscing Lorem ipsum dolor sit ament, consectetuer adipiscingLorem ipsum dolor sit ament, consectetuer adipiscingLorem
+				</div>
+
+			</div>
+
+		</div>
+		
+	</section>
+</body>
+</html>
