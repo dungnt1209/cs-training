@@ -38,7 +38,7 @@
 }
 .inner-section1 {
 	display: flex;
-    min-height: 300px;
+    min-height: 390px;
     justify-content: space-between;
 }
 .main-title {
@@ -75,4 +75,9 @@
 }
 .inner-form {
 	background: yellow;
+	padding: 10px;
+}
+.ground-form {
+	margin-bottom: 8px;
+	background: #fff;
 }
