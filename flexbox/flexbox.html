@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Title</title>
+
+  <style type="text/css">
+    .container {
+      border: 1px solid #979797;
+      width: 880px;
+    }
+
+    * {      
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    /* 1 */
+    header {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 20px;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background: #f4f4f4;
+      border-bottom: 1px solid #979797;
+    }
+
+    .brand {
+      text-transform: uppercase;
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    header ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      margin: 0;
+      list-style: none;
+    }
+
+    header ul li {
+      padding: 0 15px;      
+    }
+
+    /* 2 */
+    .content {
+      background: #fefbec;
+      border-bottom: 1px solid #979797;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 500px;
+    }
+
+    .left {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+    }
+
+    .left .divform {
+      background: #b9e986;
+      border: 1px solid #8fc055;
+      padding: 10px;
+    }
+
+    form {
+      background: #f8e71d;
+      padding: 10px;
+    }
+
+    input {
+      outline: 0;
+      padding: 5px;
+      border: 2px solid #ccc;
+      line-height: 20px;
+    }
+
+    input[type='email']:focus:invalid {
+      border: 2px solid red;
+    }
+    input[type='url']:focus:invalid {
+      border: 2px solid green;
+    }
+
+    aside {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+    }
+
+    aside p{
+      background: #8bb4e2;
+      border: 1px solid #628bb9;
+      padding: 10px;
+      width: 200px;
+    }
+
+    /* 3 */
+    .flex-container {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+
+      background: #f4f4f4;
+      padding: 5px;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-item {
+      background: #8bb4e2;
+      border: 1px solid #618bbb;
+      padding: 10px;
+      margin: 8px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- header -->
+    <header>
+      <h1 class="brand">LOgo</h1>
+      <ul>
+        <li>Menu item 1</li>
+        <li>Menu item 1</li>
+        <li>Menu item 1</li>
+      </ul>
+    </header>
+    <!-- /.header -->
+
+    <!-- content -->
+    <div class="content">
+      <div class="left">
+        <div class="divform">
+          <form action="">
+            <p>Name
+              <input type="text" id="name" name="name" required placeholder="" pattern="[A-Za-z]+" title="Name contain letters uppercase, lowercase a-z" size="20">
+            </p>
+
+            <p>Website:
+              <input type="url" id="url" name="url" placeholder="" size="20">
+            </p>
+
+            <p>Phone:
+              <input type="tel" id="tel" name="tel" pattern="[0-9]{10}" placeholder="" title="nb" size="15">
+            </p>
+
+            <p>Email:
+              <input type="email" id="email" name="email" required placeholder="" title="" size="20">
+            </p>
+            <p><input type="submit"></p>
+          </form>
+        </div>
+      </div>
+
+      <aside>
+        <p>Title</p>
+        <p>Title</p>
+        <p>Title</p>
+      </aside>
+    </div>
+    <!-- /.content -->
+
+    <!-- flex-container -->
+    <div class="flex-container wrap">
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum</p>
+      </div>
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet tellus dui</p>
+      </div>
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet tellus dui</p>
+      </div>
+      <div class="flex-item">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <!-- /.flex-container -->
+  </div>
+</body>
+</html>
